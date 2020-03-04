@@ -1,6 +1,7 @@
 #include "Level1Scene.h"
 #include "Game.h"
 #include <iostream>
+#include "ScoreBoardManager.h"
 
 Level1Scene::Level1Scene()
 {
@@ -23,6 +24,8 @@ void Level1Scene::draw()
 	{
 		cloud->draw();
 	}
+
+	ScoreBoardManager::Instance()->Draw();
 }
 
 void Level1Scene::update()
@@ -43,9 +46,6 @@ void Level1Scene::update()
 		cloud->update();
 		CollisionManager::squaredRadiusCheck(m_pPlane, cloud);
 	}
-
-	
-
 }
 
 void Level1Scene::clean()
@@ -158,6 +158,8 @@ void Level1Scene::start()
 
 	// instantiate Cloud Pool
 	m_buildClouds();
+
+	ScoreBoardManager::Instance()->Start();
 }
 
 glm::vec2 Level1Scene::getMousePosition()

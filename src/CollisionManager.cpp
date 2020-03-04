@@ -1,7 +1,8 @@
 #include "CollisionManager.h"
 #include "Util.h"
 #include <algorithm>
-
+#include "Config.h"
+#include "ScoreBoardManager.h"
 
 
 int CollisionManager::squaredDistance(glm::vec2 P1, glm::vec2 P2)
@@ -30,10 +31,12 @@ bool CollisionManager::squaredRadiusCheck(GameObject* object1, GameObject* objec
 			case ISLAND:
 				std::cout << "Collision with ISLAND!" << std::endl;
 				TheSoundManager::Instance()->playSound("yay", 0);
+				ScoreBoardManager::Instance()->setScore(ScoreBoardManager::Instance()->getScore() + 100);
 				break;
 			case CLOUD:
 				std::cout << "Collision with CLOUD!" << std::endl;
 				TheSoundManager::Instance()->playSound("thunder", 0);
+				ScoreBoardManager::Instance()->setLives(ScoreBoardManager::Instance()->getLives() - 1);
 				break;
 			default:
 				//std::cout << "Collision with unknown type!" << std::endl;

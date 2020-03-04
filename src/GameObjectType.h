@@ -11,6 +11,7 @@ enum GameObjectType {
 	OCEAN,
 	PLANE,
 	START_BUTTON,
+	RESTART_BUTTON,
 	NUM_OF_TYPES
 };
 

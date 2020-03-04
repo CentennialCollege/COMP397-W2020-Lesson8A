@@ -34,7 +34,6 @@ private:
 	std::vector<Cloud*> m_pClouds;
 	void m_buildClouds();
 
-
 	// private data member
 	glm::vec2 m_mousePosition;
 	
