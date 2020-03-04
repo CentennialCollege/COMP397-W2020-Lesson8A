@@ -23,7 +23,10 @@ void Level1Scene::draw()
 void Level1Scene::update()
 {
 	m_pOcean->update();
-	
+
+	m_pIsland->update();
+
+	m_pPlane->setPosition(glm::vec2(m_mousePosition.x, m_pPlane->getPosition().y));
 	m_pPlane->update();
 
 	//CollisionManager::AABBCheck(m_pPlane, m_pIsland);

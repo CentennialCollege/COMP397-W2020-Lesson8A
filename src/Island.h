@@ -12,6 +12,11 @@ public:
 	void draw() override;
 	void update() override;
 	void clean() override;
+
+private:
+	void m_reset();
+	void m_move();
+	void m_checkBounds();
 };
 
 #endif /* defined (__ISLAND__) */

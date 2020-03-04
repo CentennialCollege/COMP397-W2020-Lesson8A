@@ -34,7 +34,7 @@ void Plane::draw()
 void Plane::update()
 {
 	
-	auto currentPosition = getPosition();
+	/*auto currentPosition = getPosition();
 	auto currentVelocity = getVelocity();
 
 	const auto deltaTime = TheGame::Instance()->getDeltaTime();
@@ -42,7 +42,7 @@ void Plane::update()
 
 	
 	auto deltax = currentPosition.x + currentVelocity.x;
-	setPosition(glm::vec2(deltax, currentPosition.y));
+	setPosition(glm::vec2(deltax, currentPosition.y));*/
 
 	m_checkBounds();
 }
