@@ -46,14 +46,14 @@ void Island::clean()
 
 void Island::m_reset()
 {
-	int randomX = Util::RandomRange(getWidth() * 0.5f, Config::SCREEN_WIDTH - getWidth());
+	const auto randomX = Util::RandomRange(getWidth() * 0.5, Config::SCREEN_WIDTH - getWidth());
 	setPosition(glm::vec2(randomX, -getHeight()));
 }
 
 void Island::m_move()
 {
-	int xPos = getPosition().x + getVelocity().x;
-	int yPos = getPosition().y + getVelocity().y;
+	const int xPos = getPosition().x + getVelocity().x;
+	const int yPos = getPosition().y + getVelocity().y;
 	setPosition(glm::vec2(xPos, yPos));
 }
 

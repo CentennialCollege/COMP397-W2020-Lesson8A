@@ -18,6 +18,11 @@ void Level1Scene::draw()
 	m_pIsland->draw();
 	
 	m_pPlane->draw();
+
+	for (auto cloud : m_pClouds)
+	{
+		cloud->draw();
+	}
 }
 
 void Level1Scene::update()
@@ -33,6 +38,14 @@ void Level1Scene::update()
 
 	CollisionManager::squaredRadiusCheck(m_pPlane, m_pIsland);
 
+	for (auto cloud : m_pClouds)
+	{
+		cloud->update();
+		CollisionManager::squaredRadiusCheck(m_pPlane, cloud);
+	}
+
+	
+
 }
 
 void Level1Scene::clean()
@@ -41,7 +54,7 @@ void Level1Scene::clean()
 
 void Level1Scene::handleEvents()
 {
-	int wheel = 0;
+	auto wheel = 0;
 
 	SDL_Event event;
 	while(SDL_PollEvent(&event))
@@ -136,16 +149,29 @@ void Level1Scene::start()
 {
 	m_pOcean = new Ocean();
 	addChild(m_pOcean);
+
+	m_pIsland = new Island(); // instantiates Island
+	addChild(m_pIsland);
 	
 	m_pPlane = new Plane(); // instantiates Plane
 	addChild(m_pPlane);
 
-	m_pIsland = new Island(); // instantiates Island
-	addChild(m_pIsland);
+	// instantiate Cloud Pool
+	m_buildClouds();
 }
 
 glm::vec2 Level1Scene::getMousePosition()
 {
 	return m_mousePosition;
+}
+
+void Level1Scene::m_buildClouds()
+{
+	for (auto i = 0; i < m_cloudNum; ++i)
+	{
+		auto cloud = new Cloud();
+		m_pClouds.push_back(cloud);
+		addChild(cloud);
+	}
 }
 

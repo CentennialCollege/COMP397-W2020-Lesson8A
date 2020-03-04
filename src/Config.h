@@ -10,6 +10,7 @@ public:
 	static const int COL_NUM = 20;
 	static const int TILE_SIZE = 40;
 	static const int TILE_COST = 1;
+	static const int CLOUD_NUM = 3;
 };
 
 #endif /* defined (__Config__) */

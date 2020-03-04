@@ -30,7 +30,10 @@ public:
 	static float lerpUnclamped(float a, float b, float t);
 	static float lerpAngle(float a, float b, float t);
 	static float repeat(float t, float length);
+	
 	static float RandomRange(float min, float max);
+	static int RandomRange(int min, int max);
+	
 	static float Sanitize(float value);
 	static glm::vec2 min(glm::vec2 vecA, glm::vec2 vecB);
 	static glm::vec2 max(glm::vec2 vecA, glm::vec2 vecB);

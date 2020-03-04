@@ -6,6 +6,8 @@
 #include "Plane.h"
 #include "Island.h"
 #include "Ocean.h"
+#include "Cloud.h"
+#include "Config.h"
 
 class Level1Scene : public Scene
 {
@@ -27,6 +29,10 @@ private:
 	Plane* m_pPlane;
 	Island* m_pIsland;
 	Ocean* m_pOcean;
+
+	int m_cloudNum = Config::CLOUD_NUM;
+	std::vector<Cloud*> m_pClouds;
+	void m_buildClouds();
 
 
 	// private data member

@@ -167,6 +167,11 @@ float Util::RandomRange(float min, float max)
 	return rand() % int(max - min + 1) + min;
 }
 
+int Util::RandomRange(const int min, const int max)
+{
+	return rand() % (max - min + 1) + min;
+}
+
 /**
 * This Utility function checks to see if a number is very small (close to EPSILON)
 * If so, it changes the value to 0.0;
